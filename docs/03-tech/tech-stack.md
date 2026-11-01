@@ -28,7 +28,9 @@
 | Dashboard (stretch) | Streamlit | Fast shareable app |
 | Notebooks | Jupyter with `jupytext` pairing and `nbstripout` | Clean diffs, no committed outputs with data |
 | Testing | pytest, pytest-cov, hypothesis | Unit and property-based tests |
-| Quality | ruff, mypy (selected modules), pre-commit, `detect-secrets` | Style, types, secret scanning |
+| Quality | ruff, mypy (selected modules), pre-commit | Style and types |
+| Security tooling | `detect-secrets`, `bandit`, `pip-audit`, Dependabot | Secret scanning, static security checks, dependency vulnerability alerts (see [security](security.md)) |
+| Repo governance | Branch protection, `CODEOWNERS`, PR template, `SECURITY.md` | Controlled changes to `main` |
 | Automation | Makefile for stages, GitHub Actions for lint and tests | Reproducible commands and CI |
 | Version control | Git and GitHub, milestone tags | Small commits, traceable history |
 
