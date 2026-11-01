@@ -47,8 +47,18 @@ Likelihood (L) and Impact (I): Low, Medium, High. Reviewed at the end of every m
 | R-24 | Time runs out before synthesis | Medium | High | Findings drafted incrementally per milestone; M8 reserved | Draft report empty at M5 |
 | R-25 | No second annotator available | Medium | Medium | Intra-annotator re-labeling after two weeks; state limitation | Decision at M4 start |
 
+## Security risks (see [security](../03-tech/security.md) for the full threat model)
+
+| ID | Risk | L | I | Mitigation | Trigger |
+|---|---|---|---|---|---|
+| R-26 | API key leaked via commit, log or notebook | Medium | High | Env-only loading, `.env` ignored, detect-secrets, masked config, rotation procedure | Secret-scan alert; unexpected provider usage |
+| R-27 | Vulnerable or malicious dependency | Low | High | Lock file, `pip-audit`, Dependabot, review before upgrades | Audit failure |
+| R-28 | Unreviewed change merged to `main` or GitHub account compromise | Low | High | Branch protection, required checks, 2FA, least-privilege tokens | Unexpected commits or token alerts |
+| R-29 | Prompt injection in email content influences pipeline behavior | Medium | Low | Schema-validated outputs only; no execution or tool use on model output | Unexpected output formats |
+
 ## Review log
 
 | Date | Change |
 |---|---|
 | 2026-11-01 | Register expanded from 12 to 25 risks to cover methodological, ethical and operational categories. |
+| 2026-11-01 | Added security risks R-26 to R-29 following the M0 security scope. |
