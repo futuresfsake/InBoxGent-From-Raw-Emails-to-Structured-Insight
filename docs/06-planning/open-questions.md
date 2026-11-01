@@ -22,6 +22,9 @@ Decisions not yet made. Each has an owner, a deadline milestone and a default th
 | Q-14 | Dashboard hosting and whether to build it? | Optional polish | Skip unless M8 finishes early | M8 |
 | Q-15 | Event list for H5: which public dates and sources? | Needed before change-point runs to avoid post-hoc fitting | Compile from reputable public timelines; commit before M7 | M7 |
 | Q-16 | spaCy model: small or transformer-based? | Baseline strength versus runtime | Both if time allows; report separately | M5 |
+| Q-17 | Does the LLM provider account allow a dedicated key or workspace with a provider-side spend limit? | Primary defense against runaway spend and key leakage impact | Use in-code cap plus a low prepaid balance if no provider limit exists | M0 |
+| Q-18 | GitHub authentication method: SSH key with passphrase or fine-grained token? | Credential security and day-to-day convenience | SSH key with passphrase | M0 |
+| Q-19 | Enforce branch protection for a solo repository (PR for every change) or relax to required checks on direct push? | Governance versus speed | Require PRs and green checks on `main` | M0 |
 
 ## Resolved
 
