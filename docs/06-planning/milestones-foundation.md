@@ -57,6 +57,9 @@ Cut order under time pressure: Stretch, then M7, then the T2 sensitivity analyse
 | M5 to M6 (F3) | Best extraction system selected on dev only |
 | M8 release | Reproducibility checklist and ethics checklist complete |
 
+## Definition of ready and task-level done
+Task-level Definition of Ready, task-type Definitions of Done, commit conventions and the push pipeline are in [delivery-workflow](delivery-workflow.md). The list below is the milestone-level Definition of Done.
+
 ## Definition of done (every milestone)
 1. Code in `src/inboxgent` with unit tests; coverage targets met for core modules.
 2. Notebooks (if any) run top to bottom and state question, method, result, conclusion.
