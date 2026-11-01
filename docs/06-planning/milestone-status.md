@@ -35,8 +35,19 @@ Complete M0 (foundation, security and framing): repository skeleton, `.gitignore
 ## Decisions pending
 See [open-questions](open-questions.md): sample size, second annotator, API budget, external labels.
 
-## Blockers
-None.
+## Blockers and dependencies
+No task is blocked by work yet. Pending Product Owner answers that gate upcoming tasks (full mapping in [milestone-stories](milestone-stories.md) and the [gap register](gap-register.md)):
+
+| Upcoming task | Blocked by gap |
+|---|---|
+| M0-04 spend-limited API key | G-05 |
+| M0-09 license, SECURITY.md | G-08, G-10 |
+| M0-10 GitHub hardening | G-04, G-06, G-07 |
+| M0-13 lock hypotheses | G-25 |
+| M0-14 tracking skeleton | G-09 |
+| M1-03 sampler | G-11 |
+
+Critical path: M0 foundation, M1 data, M2-10 frozen cleaning, M4-04 annotation, M4-07 test lock, M5 results, M6 feature group F3, M8 report.
 
 ## Risk watch
 Top current risks: annotation effort (R-03), scope creep (R-01), cleaning heuristics quality (R-02).
