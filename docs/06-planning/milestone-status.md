@@ -20,7 +20,7 @@ Legend: Not started, In progress, Blocked, Done
 | Stretch | Hybrid, anomaly, active learning, dashboard | Stretch | Not started | 0% | |
 
 ## Current focus
-Complete M0: repository skeleton, `.gitignore`, environment and lock file, configuration, pre-commit, CI, synthetic fixture dataset.
+Complete M0 (foundation, security and framing): repository skeleton, `.gitignore`, environment and lock file, typed configuration with secret masking, secrets and access management, pre-commit security hooks, branch protection, `SECURITY.md`, threat model, CI with audit and secret scan, synthetic fixture dataset.
 
 ## Hypothesis register
 
@@ -47,3 +47,4 @@ Top current risks: annotation effort (R-03), scope creep (R-01), cleaning heuris
 |---|---|
 | 2026-11-01 | Initial planning docs created. |
 | 2026-11-01 | Planning restructured around data science methodology: hypotheses, evaluation protocol, modeling plan, ethics, reproducibility, expanded scope tiers. |
+| 2026-11-01 | M0 broadened to include security and access management: threat model, secrets handling, supply chain, repo governance (NFR-10 to NFR-15, US-34). |
