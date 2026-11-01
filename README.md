@@ -40,7 +40,7 @@ Hypotheses, metrics and decision rules are fixed before looking at test data. Se
 |---|---|---|
 | Overview | [`docs/01-overview`](docs/01-overview/) | Project overview, problem framing and hypotheses |
 | Requirements | [`docs/02-requirements`](docs/02-requirements/) | Requirements specification, user stories |
-| Tech | [`docs/03-tech`](docs/03-tech/) | Tech stack, reproducibility and MLOps |
+| Tech | [`docs/03-tech`](docs/03-tech/) | Tech stack, reproducibility and MLOps, security and threat model |
 | Design | [`docs/04-design`](docs/04-design/) | HLD, LLD, architecture decision log |
 | Data science | [`docs/05-data-science`](docs/05-data-science/) | Dataset datasheet, evaluation methodology, modeling plan, ethics and privacy |
 | Planning | [`docs/06-planning`](docs/06-planning/) | Milestones, status, reference, stories, testing, risks, open questions |
