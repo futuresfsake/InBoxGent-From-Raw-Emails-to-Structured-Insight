@@ -3,15 +3,36 @@
 Detailed scope, deliverables, exit criteria and key analyses per milestone.
 
 ## M0 Foundation and framing
-**Tasks**
-- Repo skeleton, `.gitignore` (raw, interim, features, outputs, mlruns), `pyproject.toml`, lock file
-- Typed configuration, logging, CLI entry point, Makefile
-- pre-commit: ruff, secret scan, large-file and data-path blockers, nbstripout
-- GitHub Actions: lint, tests, fixture pipeline
-- Synthetic fixture dataset (about 30 fake emails covering quotes, forwards, signatures, duplicates, threads)
-- Lock problem framing, hypotheses and evaluation methodology
+M0 is the foundation: environment, security, access management and quality tooling that every later milestone relies on. See [security](../03-tech/security.md) for the threat model.
 
-**Exit:** fresh clone installs and runs `make test` and the fixture pipeline green in CI.
+**Tasks: project setup**
+- Repo skeleton, `pyproject.toml`, lock file, `.python-version`
+- Typed configuration with secret-masking types, structured logging, CLI entry point, Makefile
+- `LICENSE` (see Q-12), README setup instructions
+
+**Tasks: security and access management**
+- `.gitignore` for raw, interim, features, outputs, `mlruns`, `.env`, caches
+- `.env.example`; API key loaded from environment only
+- Dedicated LLM API key with provider-side spend limit; in-code budget cap and dry-run mode skeleton
+- pre-commit: ruff, `detect-secrets`, `bandit`, large-file and data-path blockers, `nbstripout`
+- GitHub: enable 2FA, SSH key or fine-grained token with expiry, branch protection on `main`, required status checks
+- `SECURITY.md` (reporting, rotation and incident steps), `CODEOWNERS`, PR template with data and secrets checklist
+- Dependabot configuration; `pip-audit` in CI
+- Threat model document and verification tests (fake-key rejection, data-path blocker, config masking, budget cap)
+
+**Tasks: CI and quality**
+- GitHub Actions: lint, type check, tests with coverage, `pip-audit`, secret scan, fixture pipeline; least-privilege workflow permissions
+- Synthetic fixture dataset (about 30 fake emails covering quotes, forwards, signatures, duplicates, threads)
+
+**Tasks: methodology lock**
+- Problem framing, hypotheses and evaluation methodology committed as pre-registration
+
+**Exit:**
+- A fresh clone installs and passes `make test` and the fixture pipeline in CI.
+- A test commit containing a fake secret is rejected locally and in CI.
+- Adding a file under `data/raw` is blocked.
+- Direct push to `main` is blocked; changes require a PR with green checks.
+- Threat-model verification tests pass.
 
 ## M1 Acquisition and data understanding
 **Tasks**
