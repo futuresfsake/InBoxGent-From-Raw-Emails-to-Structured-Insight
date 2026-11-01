@@ -43,6 +43,7 @@
 | US-31 | Skeptical reviewer | a datasheet and model card | provenance, limits and intended use are explicit | RS-02, RS-04 |
 | US-32 | Hiring manager | an interactive dashboard | I can explore results without running code | RS-03 |
 | US-33 | Researcher | tested, modular code | I can reuse cleaning and evaluation components | NFR-03, NFR-04 |
+| US-34 | Analyst | secrets, access and dependencies managed securely, with a documented threat model | the project cannot leak keys or data, and spend and changes are controlled | NFR-10 to NFR-15 |
 
 ## Acceptance criteria (selected)
 
