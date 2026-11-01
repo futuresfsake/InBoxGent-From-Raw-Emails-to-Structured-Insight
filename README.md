@@ -43,7 +43,7 @@ Hypotheses, metrics and decision rules are fixed before looking at test data. Se
 | Tech | [`docs/03-tech`](docs/03-tech/) | Tech stack, reproducibility and MLOps, security and threat model |
 | Design | [`docs/04-design`](docs/04-design/) | HLD, LLD, architecture decision log |
 | Data science | [`docs/05-data-science`](docs/05-data-science/) | Dataset datasheet, evaluation methodology, modeling plan, ethics and privacy |
-| Planning | [`docs/06-planning`](docs/06-planning/) | Milestones, status, reference, stories, testing, risks, open questions, [gap register](docs/06-planning/gap-register.md) |
+| Planning | [`docs/06-planning`](docs/06-planning/) | Milestones, status, reference, stories, testing, risks, open questions, [gap register](docs/06-planning/gap-register.md), [delivery workflow (DoR, DoD, push pipeline)](docs/06-planning/delivery-workflow.md) |
 
 ## Planned repository layout
 
