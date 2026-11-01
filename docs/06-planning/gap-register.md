@@ -69,6 +69,22 @@ Last updated: 2026-11-01. Open items: 35.
 
 ---
 
+## Which tasks each gap blocks
+
+The task-level view is in [milestone-stories](milestone-stories.md) (column "Blocked by gap"). Quick reverse lookup for the most blocking items:
+
+| Gap | Blocks tasks |
+|---|---|
+| G-05 | M0-04, M5-04 |
+| G-25 | M0-13, M4-07, M5-07 |
+| G-23 | M4-03, M4-04, M4-08 |
+| G-21 | M4-01, M4-08, M6-01 |
+| G-15 | M2-06, M3-04, M7-03 |
+| G-16 | M3-02, M7-03 |
+| G-20 | M4-01, M5-02 |
+| G-26, G-27 | M5-04 |
+| G-04 | M0-10, M8-06 |
+
 ## Work items that are not gaps
 
 These are planned tasks with no open question, listed so they are not mistaken for decisions: write `.gitignore`, `LICENSE`, `SECURITY.md`, `CODEOWNERS`, PR template, pre-commit config, CI workflows, annotation guidelines, event list file, threat-model verification tests, synthetic fixture dataset.
