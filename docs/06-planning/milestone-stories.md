@@ -6,9 +6,16 @@ Work items per milestone, linked to user stories and requirements. Size: S under
 | Task | Size | Story | Req |
 |---|---|---|---|
 | Repo skeleton, `.gitignore`, pyproject, lock file | S | US-33 | NFR-01 |
-| Typed config, logging, CLI, Makefile | M | US-33 | NFR-03 |
-| pre-commit with ruff, secret scan, data-path blockers, nbstripout | S | US-08 | NFR-10 |
-| CI workflow (lint, tests, fixture pipeline) | M | US-33 | NFR-04 |
+| Typed config with secret masking, logging, CLI, Makefile | M | US-33 | NFR-03, NFR-10 |
+| `.env.example` and environment-only key loading | S | US-34 | NFR-10 |
+| Dedicated spend-limited API key and budget cap skeleton | S | US-34 | NFR-06, NFR-11 |
+| pre-commit: ruff, detect-secrets, bandit, data-path and size blockers, nbstripout | M | US-08, US-34 | NFR-10 |
+| GitHub hardening: 2FA, SSH or fine-grained token, branch protection, required checks | S | US-34 | NFR-11 |
+| `SECURITY.md`, `CODEOWNERS`, PR template, `LICENSE` | S | US-34 | NFR-13 |
+| Dependabot and `pip-audit` in CI | S | US-34 | NFR-12 |
+| Threat model document | M | US-34 | NFR-14 |
+| Security verification tests (fake key rejected, path blocker, config masking, budget cap) | M | US-34 | NFR-14, NFR-15 |
+| CI workflow (lint, types, tests, audit, secret scan, fixture pipeline) | M | US-33 | NFR-04 |
 | Synthetic fixture dataset | M | US-33 | NFR-04 |
 | Lock problem framing and evaluation protocol | S | US-14 | RS-01 |
 
