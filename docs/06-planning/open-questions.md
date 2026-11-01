@@ -2,6 +2,8 @@
 
 Decisions not yet made. Each has an owner, a deadline milestone and a default that will apply if no decision is made.
 
+> The consolidated list of everything needing a Product Owner answer, including provisional parameters and unverified facts, is in the [gap register](gap-register.md). Question IDs here (Q-xx) are cross-referenced there as G-xx.
+
 ## Open
 
 | ID | Question | Why it matters | Default if undecided | Needed by |
