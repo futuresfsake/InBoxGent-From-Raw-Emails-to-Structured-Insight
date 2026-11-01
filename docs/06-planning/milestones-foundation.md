@@ -12,7 +12,7 @@ How work is organized, sequenced and judged complete.
 
 | ID | Name | Outcome | Requirements | Stories |
 |---|---|---|---|---|
-| M0 | Foundation and framing | Repo skeleton, environment, CI, config, locked hypotheses and evaluation protocol | NFR-01, NFR-03, NFR-10 | US-33 |
+| M0 | Foundation, security and framing | Repo skeleton, environment, config, secrets and access management, supply-chain and repo governance, threat model, CI, locked hypotheses and evaluation protocol | NFR-01, NFR-03, NFR-10 to NFR-15 | US-33, US-34 |
 | M1 | Acquisition and data understanding | Manifest, seeded stratified sample, parsed headers, first datasheet profile | DE-01, DE-02, DE-03 | US-01, US-02 |
 | M2 | Cleaning, dedup, threads, quality gates | Frozen `clean_v1`, duplicate clusters, thread ids, lineage, PII scan | DE-04 to DE-09 | US-03 to US-08 |
 | M3 | EDA and hypothesis refinement | Profiling report, documented generated hypotheses, split boundaries fixed | EX-01 | US-09 |
