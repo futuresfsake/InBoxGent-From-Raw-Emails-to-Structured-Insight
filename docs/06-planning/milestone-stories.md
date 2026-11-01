@@ -15,6 +15,17 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M0 Foundation, security and framing
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-33 | Researcher | I want tested, modular code so I can reuse cleaning and evaluation components. |
+| US-34 | Analyst | I want secrets, access and dependencies managed securely, with a documented threat model, so the project cannot leak keys or data and spend and changes are controlled. |
+| US-08 | Analyst | I want PII redacted from anything published so the project respects privacy (M0 sets up the blockers; M2 builds redaction). |
+| US-14 | Skeptical reviewer | I want per-field metrics with confidence intervals so I can judge whether differences are real (M0 locks the evaluation protocol). |
+| US-25 | Analyst | I want tracked experiments linked to data and code versions so any result can be reproduced from its run ID (M0 sets up the skeleton). |
+
 **Entry criteria:** none. Gaps G-01 to G-10 should be answered before the tasks that name them.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -39,6 +50,17 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M1 Acquisition and data understanding
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-01 | Analyst | I want a reproducible, stratified sample with a recorded data manifest so every run starts from known, versioned data. |
+| US-02 | Analyst | I want headers parsed into typed columns with failure counts so I can trust and analyze sender, recipient and time. |
+| US-04 | Analyst | I want exact and near duplicates flagged with a canonical message so counts and splits are not inflated (M1 does exact hashing). |
+| US-07 | Analyst | I want automated data-quality gates so silent data corruption is caught early. |
+| US-31 | Skeptical reviewer | I want a datasheet and model card so provenance, limits and intended use are explicit (M1 verifies the datasheet). |
+
 **Entry criteria:** M0-01, M0-02, M0-05, M0-07 done. Enough disk space for the raw corpus.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -53,6 +75,20 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M2 Cleaning, dedup, threads, quality gates
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-03 | Analyst | I want quotes, forwards, signatures and disclaimers removed so text contains only new content. |
+| US-04 | Analyst | I want near duplicates clustered with a canonical message so counts and splits are not inflated. |
+| US-05 | Analyst | I want reconstructed threads with a measured accuracy so I can group splits and model reply behavior. |
+| US-06 | Analyst | I want a lineage log for every stage so I can justify each cleaning decision. |
+| US-07 | Analyst | I want automated data-quality gates (G3-G5) so silent data corruption is caught early. |
+| US-08 | Analyst | I want PII redacted from anything published so the project respects privacy. |
+| US-11 | Analyst | I want a frozen cleaned text version so annotation and evaluation cannot drift (M2 freezes `clean_v1`). |
+| US-33 | Researcher | I want tested, modular code so I can reuse cleaning components. |
+
 **Entry criteria:** M1-05 done (gates G1-G2 pass).
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -71,6 +107,14 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M3 EDA and hypothesis refinement
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-09 | Analyst | I want exploratory analysis that records generated hypotheses so exploration is separated from confirmation. |
+| US-20 | Skeptical reviewer | I want grouped and temporal splits plus a random-split comparison so leakage and optimism are quantified (M3 decides the split boundaries). |
+
 **Entry criteria:** `clean_v1` frozen (M2-10).
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -84,6 +128,15 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M4 Annotation
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-10 | Analyst | I want written annotation guidelines and a measured agreement score so labels are consistent and defensible. |
+| US-11 | Analyst | I want a gold set split into dev and a locked test partition so tuning cannot contaminate evaluation. |
+| US-19 | Analyst | I want clearly defined prediction tasks with documented label provenance so models answer a well-posed question (M4 builds the T1 category labels). |
+
 **Entry criteria:** M2-10 and M3-04 done; schema decisions made.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -100,6 +153,18 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M5 Extraction benchmark
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-12 | Analyst | I want interchangeable extraction systems behind one interface so comparisons are fair and new systems are cheap to add. |
+| US-13 | Analyst | I want LLM extraction with validated structured output, caching and pinned models so results are reproducible and cost-controlled. |
+| US-14 | Skeptical reviewer | I want per-field metrics with bootstrap confidence intervals so I can judge whether differences are real. |
+| US-15 | Skeptical reviewer | I want paired significance tests with multiplicity correction so I can trust the headline comparisons. |
+| US-16 | Hiring manager | I want a cost-quality trade-off view so I see practical, business-aware judgment. |
+| US-17 | Analyst | I want an error taxonomy per system so I can explain why systems fail, not just that they do. |
+
 **Entry criteria:** M4-07 done (test locked). Tasks M5-01 to M5-04 may start earlier because they need only the interface and the guidelines.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -118,6 +183,19 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M6 Predictive modeling
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-19 | Analyst | I want clearly defined prediction tasks with documented label provenance so models answer a well-posed question. |
+| US-20 | Skeptical reviewer | I want grouped and temporal splits plus a random-split comparison so leakage and optimism are quantified. |
+| US-21 | Analyst | I want baselines next to stronger models so improvement is measured against something meaningful. |
+| US-22 | Skeptical reviewer | I want PR-AUC, macro-F1 and calibration with confidence intervals so model quality is judged beyond accuracy. |
+| US-23 | Analyst | I want ablations on cleaning and feature groups so I can attribute gains to specific choices. |
+| US-24 | Analyst | I want interpretability and slice-based error analysis so I can explain and stress-test models. |
+| US-25 | Analyst | I want tracked experiments linked to data and code versions so any result can be reproduced from its run ID. |
+
 **Entry criteria:** M2-06 (threads), M3-04 (splits), M4-08 (T1 labels). Feature group F3 additionally needs M5-10.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -136,6 +214,15 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M7 Topics, network and temporal analysis (Extended)
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-26 | Analyst | I want stable, named topics so I can summarize corpus themes credibly. |
+| US-27 | Analyst | I want a network analysis compared with a null model so structural claims are statistically grounded. |
+| US-28 | Analyst | I want change-point detection aligned with a pre-registered event list so temporal claims are not post-hoc storytelling. |
+
 **Entry criteria:** M2-10 done. Independent of M4 and M5, so it can fill waiting time during annotation.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -150,6 +237,15 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## M8 Synthesis and release
+
+**Stories in this milestone**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-30 | Hiring manager | I want a README findings summary so I can judge the project in five minutes. |
+| US-31 | Skeptical reviewer | I want a datasheet and model card so provenance, limits and intended use are explicit. |
+| US-33 | Researcher | I want tested, modular code and a reproducible release so I can reuse components and rerun results. |
+
 **Entry criteria:** all Core results available; reproducibility and ethics checklists open.
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
@@ -164,6 +260,14 @@ Any slip on annotation (`M4-04`, `M4-08`) moves the finish date directly. Tasks 
 ---
 
 ## Stretch
+
+**Stories in this tier**
+
+| Story | Persona | What it is about |
+|---|---|---|
+| US-18 | Analyst | I want a cascaded extractor that routes hard cases to an LLM so I can show a better cost-quality point. |
+| US-29 | Analyst | I want anomaly detection on sender behavior so I can surface unusual patterns for review. |
+| US-32 | Hiring manager | I want an interactive dashboard so I can explore results without running code. |
 
 | ID | Task | Size | Story | Req | Depends on | Blocked by gap |
 |---|---|---|---|---|---|---|
