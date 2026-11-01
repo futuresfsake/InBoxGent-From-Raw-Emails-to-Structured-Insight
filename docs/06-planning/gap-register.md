@@ -8,7 +8,7 @@ Every open question, provisional assumption, unverified fact and unmade decision
 
 **Status legend:** Open, Answered, Defaulted.
 
-Last updated: 2026-11-01. Open items: 35.
+Last updated: 2026-11-01. Open items: 36.
 
 ---
 
@@ -26,6 +26,7 @@ Last updated: 2026-11-01. Open items: 35.
 | G-08 | D | Code license: MIT, Apache-2.0 or other? Documentation license? | Reuse terms and attribution | MIT for code | Q-12 | |
 | G-09 | D | Experiment tracking: MLflow or lightweight CSV/JSON logs? | Overhead versus traceability | MLflow with local store | Q-13 | |
 | G-10 | D | What contact address goes in the README and `SECURITY.md` for security reports and takedown requests? | Required by the ethics plan | A dedicated project email or GitHub issues | new | |
+| G-36 | D | Merge strategy for pull requests: rebase-merge or merge commit (keeps per-file commits), or squash? And are local hooks implemented as `.githooks` plus the pre-commit framework? | Determines how granular the contribution history stays and how hooks are shared | Rebase-merge; `.githooks` delegating to pre-commit | [delivery workflow](delivery-workflow.md) | |
 
 ## B. Needed by M1 to M3 (data, cleaning, EDA)
 
@@ -93,7 +94,7 @@ These are planned tasks with no open question, listed so they are not mistaken f
 
 | Needed by | Open items |
 |---|---|
-| M0 | G-01 to G-10 (10) |
+| M0 | G-01 to G-10 and G-36 (11) |
 | M1 to M3 | G-11 to G-18 (8) |
 | M4 to M5 | G-19 to G-29 (11) |
 | M6 to M8 | G-30 to G-35 (6) |
