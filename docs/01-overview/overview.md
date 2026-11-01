@@ -1,41 +1,94 @@
 # Project Overview
 
-## Name
+## Title
 InBoxGent: From Raw Emails to Structured Insight
 
-## Problem
-Email is one of the largest sources of unstructured business data, but it is full of noise: headers, signatures, quoted replies, forwarded chains, encoding artifacts and duplicates. Before any analysis can happen, it has to be cleaned and structured.
+## Executive summary
+Email holds a large share of an organization's operational knowledge, but it arrives as noisy, semi-structured text: headers, signatures, quoted history, forwards, duplicates and encoding damage. InBoxGent is a full-lifecycle data science study that (1) engineers a clean, deduplicated, thread-aware dataset from the public Enron corpus, (2) benchmarks four information-extraction systems under a statistically rigorous protocol, (3) builds and validates predictive models without leakage, and (4) explores themes, network structure and structural breaks in the data.
 
-## Central question
-Can we reliably turn messy, unstructured email into structured data, and what does that data reveal about communication patterns?
+The project is designed so that every claim can be traced to a pre-specified hypothesis, a metric, a confidence interval and a reproducible run.
 
-## Goals
-1. Build a reproducible cleaning pipeline for raw email.
-2. Extract structured fields (people, dates, amounts, organizations, action items).
-3. Compare extraction approaches (rules, classic NLP, LLM) with measured accuracy, cost and latency.
-4. Analyze the structured output (EDA, classification, topic discovery).
-5. Present findings clearly enough to serve as a data science portfolio piece.
+## Motivation
+- Cleaning and structuring text is the largest hidden cost in applied data science, and its effect on downstream results is rarely measured.
+- LLMs make extraction easy to prototype, but quality, cost and failure modes are seldom compared against cheaper baselines with proper statistics.
+- The Enron corpus is a well-studied, public benchmark with real-world messiness, a known timeline of external events, and ethical considerations that must be handled deliberately.
+
+## Objectives
+1. **Data engineering:** produce a reproducible, validated, deduplicated and thread-aware dataset with full lineage.
+2. **Measurement:** quantify how data cleaning choices change downstream results (ablation).
+3. **Benchmarking:** compare rules, spaCy, a small LLM and a larger LLM for field extraction with confidence intervals, significance tests, cost and latency.
+4. **Prediction:** build calibrated models for email category and reply behavior under temporal and grouped validation.
+5. **Discovery:** analyze topics, network structure and change points, separating confirmatory from exploratory findings.
+6. **Communication:** deliver a findings report, a model card and a dataset datasheet.
+
+## Lifecycle alignment (CRISP-DM)
+
+| Phase | Where addressed |
+|---|---|
+| Business / problem understanding | [problem-framing.md](problem-framing.md) |
+| Data understanding | [Datasheet](../05-data-science/data-understanding.md), EDA milestone |
+| Data preparation | Cleaning, dedup, threading, quality gates |
+| Modeling | [Modeling plan](../05-data-science/modeling-plan.md), extraction benchmark |
+| Evaluation | [Evaluation methodology](../05-data-science/evaluation-methodology.md) |
+| Deployment / communication | Findings report, model card, optional dashboard |
+
+## Scope
+
+### Core
+- Acquisition, sampling, parsing, cleaning, deduplication, thread reconstruction, data quality gates
+- Exploratory data analysis with documented hypotheses
+- Annotation guidelines, gold set with inter-annotator agreement, frozen dev/test split
+- Extraction benchmark (four systems) with CIs, paired tests, error taxonomy, cost and latency
+- Predictive modeling: email category and reply-within-window prediction; baselines, ablations, calibration, interpretability
+- Findings report, model card, datasheet
+
+### Extended
+- Topic modeling with stability and coherence evaluation
+- Directed weighted network analysis and community detection with null-model comparison
+- Change-point detection on communication metrics aligned to the public event timeline
+
+### Stretch
+- Hybrid or cascaded extraction (cheap model first, LLM on uncertain cases)
+- Anomaly detection on sender behavior
+- Active learning to reduce labeling effort
+- Streamlit dashboard
 
 ## Non-goals
-- Not a production email client or inbox manager.
-- No processing of any personal or private mailbox data in the public repo.
-- No real-time or streaming ingestion.
-
-## Dataset
-Enron email corpus (public), sampled to roughly 20,000-50,000 messages.
+- A production email product or real-time ingestion
+- Processing any private mailbox
+- Inferring protected or sensitive attributes of individuals
+- Claims about wrongdoing by any named person
 
 ## Deliverables
-- Cleaning and extraction code in `src/`
-- Analysis notebooks in `notebooks/`
-- A labeled evaluation set (about 200 emails)
-- A findings report with figures
-- Optional Streamlit dashboard
+- Versioned Python package and pipeline (`src/inboxgent`)
+- Analysis notebooks, one question per notebook
+- Gold annotation set (labels only, no email text) with guidelines and agreement report
+- Experiment log and metrics tables generated by script
+- `reports/findings.md`, `reports/model_card.md`, datasheet
 
-## Success criteria
-- Cleaning pipeline logs what each step removes and is rerunnable end to end.
-- Extraction approaches compared with precision, recall and F1 per field on the labeled set.
-- At least one classification model beats a trivial baseline on held-out data.
-- A README findings summary a reviewer can read in under five minutes.
+## Success criteria (measurable)
+1. Pipeline reruns end to end from a fresh clone with a single documented command sequence and produces identical metrics given the same seed and data manifest.
+2. Every pipeline stage passes its data-quality gate; cleaning lineage reports rows and characters removed per step.
+3. Inter-annotator agreement reported: Cohen's kappa at least 0.70 for category labels, pairwise span F1 at least 0.80 for entities, or guidelines revised and re-annotated.
+4. Extraction results reported per field and system with 95% bootstrap CIs, and primary hypotheses tested with paired tests and multiplicity correction.
+5. At least one predictive model beats all baselines on a temporally held-out test set, or the negative result is reported honestly with analysis.
+6. A reviewer can read the README findings summary in five minutes and trace each headline number to a run ID.
 
 ## Audience
-Data science internship reviewers and hiring managers.
+Data science internship reviewers, hiring managers and technical peers who will probe methodology, not just results.
+
+## Assumptions
+- The Enron corpus remains publicly accessible for research use.
+- A gold set of about 300 emails (floor 200) is enough for CI-aware comparison of systems when differences are large; small differences will be reported as inconclusive.
+- API budget allows LLM evaluation on the gold set plus a capped sample.
+
+## Constraints
+- Single developer, part-time; laptop hardware without a GPU assumed.
+- Reproducibility prioritized over scale: 20k-50k emails for the main study.
+
+## Glossary
+- **Custodian:** a mailbox owner whose email folders are in the corpus.
+- **Gold set:** hand-annotated emails used as ground truth.
+- **Frozen cleaned text:** the exact cleaned body text version on which annotation and extraction evaluation are performed.
+- **Leakage:** information in training or tuning that would not be available at prediction time, or overlap between train and test.
+- **Dev/test split:** dev for tuning rules and prompts; test locked until final evaluation.
