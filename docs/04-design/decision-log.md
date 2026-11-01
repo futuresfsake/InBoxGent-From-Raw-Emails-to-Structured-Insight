@@ -76,7 +76,13 @@ Lightweight ADRs. Status values: Proposed, Accepted, Superseded. New decisions a
 **Decision:** Core = data engineering, extraction benchmark, predictive modeling, reporting. Extended = topics, network, change points. Stretch = cascade, anomaly, active learning, dashboard.
 **Consequences:** Cut order under time pressure is Stretch, then Extended.
 
-## ADR-013: Restrict reply-prediction to observable replies
+## ADR-013: Security baseline delivered in M0
+**Status:** Accepted (2026-11-01)
+**Context:** The project handles an API key with spend implications, real people's correspondence, third-party dependencies and a public repository. Retrofitting security after data and keys exist is costly and error-prone.
+**Decision:** M0 delivers secrets management, access control, supply-chain checks, repo governance and a threat model before any data is downloaded. The pipeline has no user authentication because it has no users; credential and access management replaces it.
+**Consequences:** M0 is larger; later milestones start with guardrails already enforced by hooks and CI.
+
+## ADR-014: Restrict reply-prediction to observable replies
 **Status:** Accepted
 **Context:** The corpus contains only custodian mailboxes; a missing reply may mean no reply or a responder outside the corpus.
 **Decision:** T2 includes only messages with at least one custodian among the recipients and excludes messages within W hours of the end of the custodian's data (right-censoring).
