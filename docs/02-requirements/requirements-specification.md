@@ -78,7 +78,12 @@
 | NFR-07 | Documentation: every notebook states its question, method, result and conclusion. | S | I |
 | NFR-08 | Observability: structured logging with run ID across all stages. | S | I |
 | NFR-09 | Portability: runs on Windows, macOS and Linux with documented setup. | S | D |
-| NFR-10 | Security: secrets only via environment variables; secret scanning in pre-commit. | M | T |
+| NFR-10 | Secrets management: secrets only via environment variables or a git-ignored `.env`; secret fields masked in logs and config output; secret scanning in pre-commit and CI. | M | T |
+| NFR-11 | Credential and access control: dedicated, spend-limited LLM API key; 2FA and least-privilege credentials for GitHub; branch protection on `main` requiring passing CI. | M | I |
+| NFR-12 | Supply chain security: locked dependencies, `pip-audit` and Dependabot, CI actions with least-privilege permissions. | M | T |
+| NFR-13 | Repository governance: `SECURITY.md`, `LICENSE`, `CODEOWNERS`, PR template with a data and secrets checklist. | M | I |
+| NFR-14 | Threat model: documented assets, threats and mitigations, with verification tests for key controls (see [security](../03-tech/security.md)). | M | I/T |
+| NFR-15 | Untrusted-input handling: email text and LLM outputs treated as untrusted; no code execution on either; LLM outputs accepted only after schema validation. | M | T |
 
 ## Constraints
 - Single developer, part-time.
