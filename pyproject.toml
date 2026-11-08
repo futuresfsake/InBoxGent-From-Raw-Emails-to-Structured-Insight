@@ -16,6 +16,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+tracking = ["mlflow>=2.14"]
 dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
@@ -58,3 +59,7 @@ files = ["src/inboxgent"]
 
 [tool.bandit]
 exclude_dirs = ["tests", ".venv"]
+
+[[tool.mypy.overrides]]
+module = ["mlflow", "mlflow.*"]
+ignore_missing_imports = true
