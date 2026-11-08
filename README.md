@@ -2,7 +2,7 @@
 
 An end-to-end, evidence-driven data science study on the public Enron email corpus. It turns raw, noisy email into validated structured data, benchmarks competing information-extraction systems under a rigorous protocol, builds leakage-safe predictive models on the result, and analyzes the communication network and its evolution over time.
 
-> **Status:** design and methodology phase. No implementation yet. The full plan, hypotheses and evaluation protocol are in [`docs/`](docs/).
+> **Status:** design complete; implementation started with M0 (foundation and security). The full plan, hypotheses and evaluation protocol are in [`docs/`](docs/).
 
 ## Research questions
 
