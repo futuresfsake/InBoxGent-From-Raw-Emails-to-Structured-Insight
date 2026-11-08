@@ -1,0 +1,5 @@
+# Ownership for sensitive paths (G-07, T-10)
+*                  @futuresfsake
+data/labeled/       @futuresfsake
+config/              @futuresfsake
+.github/             @futuresfsake
