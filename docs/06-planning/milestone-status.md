@@ -10,7 +10,7 @@ Legend: Not started, In progress, Blocked, Done
 |---|---|---|---|---|---|
 | M0 | Foundation and framing | Core | In progress | Design docs, hypotheses and evaluation protocol written | Code done: M0-01 (no lock file), M0-02, M0-03, M0-05, M0-06, M0-07 (CI unverified), M0-08, M0-09 (files; contact is GitHub issues), M0-12 (tests), M0-14 (MLflow skeleton), M0-04 (in-code cap). Gaps defaulted 2026-11-08. Remaining for Product Owner: provider spend limit, GitHub 2FA and SSH key, branch protection (M0-10), confirm CI is green |
 | M1 | Acquisition and data understanding | Core | In progress | Fixture-level code: manifest, exact dedup, header parser, stratified sampler (30k default), gates G1-G2 (pure Python, not pandera) | Remaining: real corpus download and profiling, datasheet verification (G-12) |
-| M2 | Cleaning, dedup, threads, quality gates | Core | Not started | 0% | |
+| M2 | Cleaning, dedup, threads, quality gates | Core | In progress | First-pass cleaning (M2-01 to M2-03, M2-09) on fixture with per-step lineage | Not yet: boilerplate mining, audit on real data, near-dup, threads, PII, freeze |
 | M3 | EDA and hypothesis refinement | Core | Not started | 0% | |
 | M4 | Annotation | Core | Not started | 0% | Needs decision on second annotator |
 | M5 | Extraction benchmark | Core | Not started | 0% | Needs API budget decision |
@@ -62,3 +62,4 @@ Top current risks: annotation effort (R-03), scope creep (R-01), cleaning heuris
 | 2026-11-08 | Implementation started: package skeleton, typed config with secret masking, logging redaction, CLI, Makefile, pre-commit and .githooks, data-path blocker, CI workflow, unit tests. |
 | 2026-11-08 | Added fixture dataset, Dependabot, manifest, header parser and exact dedup (fixture-level). |
 | 2026-11-08 | Gap defaults accepted. Added LICENSE, SECURITY.md, CODEOWNERS, PR template, budget guard, tracking skeleton, sampler and gates G1-G2. |
+| 2026-11-08 | Added first-pass cleaning module with property tests (fixture only; heuristics unvalidated until the M2-08 audit). |
