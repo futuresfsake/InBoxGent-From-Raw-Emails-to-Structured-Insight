@@ -53,3 +53,6 @@ select = ["E", "F", "I", "B", "UP", "S", "SIM"]
 python_version = "3.11"
 strict = true
 files = ["src/inboxgent"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
