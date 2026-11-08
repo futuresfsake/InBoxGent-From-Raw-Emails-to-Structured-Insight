@@ -14,7 +14,8 @@ def test_blocks_raw_data_path() -> None:
 
 
 def test_blocks_windows_style_path() -> None:
-    assert module.check(["data\interim\a.parquet"])
+    sep = chr(92)
+    assert module.check([sep.join(["data", "interim", "a.parquet"])])
 
 
 def test_allows_labeled_and_code(tmp_path: Path) -> None:
