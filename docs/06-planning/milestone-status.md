@@ -1,6 +1,6 @@
 # Milestone Status
 
-**Last updated:** 2026-11-01
+**Last updated:** 2026-11-08
 
 Legend: Not started, In progress, Blocked, Done
 
@@ -8,7 +8,7 @@ Legend: Not started, In progress, Blocked, Done
 
 | ID | Milestone | Tier | Status | Progress | Notes |
 |---|---|---|---|---|---|
-| M0 | Foundation and framing | Core | In progress | Design docs, hypotheses and evaluation protocol written | Remaining: repo skeleton, environment, CI, config |
+| M0 | Foundation and framing | Core | In progress | Design docs, hypotheses and evaluation protocol written | Done: M0-01, M0-02, M0-03, M0-05 (config), M0-07 (first CI, unverified). Remaining: M0-06 fixture, M0-08, M0-12 (partial), gap-blocked M0-04/09/10/13/14 |
 | M1 | Acquisition and data understanding | Core | Not started | 0% | |
 | M2 | Cleaning, dedup, threads, quality gates | Core | Not started | 0% | |
 | M3 | EDA and hypothesis refinement | Core | Not started | 0% | |
@@ -59,3 +59,4 @@ Top current risks: annotation effort (R-03), scope creep (R-01), cleaning heuris
 | 2026-11-01 | Initial planning docs created. |
 | 2026-11-01 | Planning restructured around data science methodology: hypotheses, evaluation protocol, modeling plan, ethics, reproducibility, expanded scope tiers. |
 | 2026-11-01 | M0 broadened to include security and access management: threat model, secrets handling, supply chain, repo governance (NFR-10 to NFR-15, US-34). |
+| 2026-11-08 | Implementation started: package skeleton, typed config with secret masking, logging redaction, CLI, Makefile, pre-commit and .githooks, data-path blocker, CI workflow, unit tests. |
