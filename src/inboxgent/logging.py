@@ -15,9 +15,7 @@ REDACTED = "[REDACTED]"
 def redact(text: str) -> str:
     """Replace anything that looks like a credential."""
     for pattern in _PATTERNS:
-        text = pattern.sub(
-            lambda m: f"{m.group(1)}={REDACTED}" if m.lastindex else REDACTED, text
-        )
+        text = pattern.sub(lambda m: f"{m.group(1)}={REDACTED}" if m.lastindex else REDACTED, text)
     return text
 
 
