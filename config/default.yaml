@@ -1,0 +1,19 @@
+# Default configuration. Secrets never live here: use environment variables (see .env.example).
+seed: 20260101
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  features: data/features
+  labeled: data/labeled
+  outputs: data/outputs
+
+llm:
+  small_model: claude-haiku-5-5
+  large_model: claude-sonnet-5-5
+  temperature: 0.0
+  max_attempts: 3
+  budget_usd: 0.0   # hard cap; 0 disables all paid calls until explicitly raised
+
+logging:
+  level: INFO
